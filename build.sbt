@@ -41,9 +41,10 @@ lazy val root = (project in file("."))
       "com.softwaremill.sttp.tapir" %% "tapir-json-circe"        % Versions.tapir, // Added for JSON support
 
       // Circe dependencies
-      "io.circe" %% "circe-core"    % "0.14.5", // Added for Circe
-      "io.circe" %% "circe-generic" % "0.14.5", // Added for Circe
-      munit       % Test
+      "io.circe"         %% "circe-core"            % "0.14.5", // Added for Circe
+      "org.apache.pekko" %% "pekko-http-spray-json" % Versions.PekkoHttp,
+      "io.circe"         %% "circe-generic"         % "0.14.5", // Added for Circe
+      munit               % Test
     )
   )
 
