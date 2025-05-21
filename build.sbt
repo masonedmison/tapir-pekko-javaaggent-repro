@@ -12,7 +12,7 @@ val Versions = new {
 }
 
 javaOptions ++= Seq(
-  "-javaagent:/Users/medmison/opentelemetry-javaagent-2.12.0-SNAPSHOT.jar",
+  "-javaagent:./opentelemetry-javaagent-2-15.jar",
   "-Dotel.javaagent.debug=true",
   "-Dotel.service.name=sports-catalog-api",
   "-Dotel.exporter.otlp.endpoint=http://localhost:4317",
@@ -30,6 +30,9 @@ lazy val root = (project in file("."))
   .settings(
     name := "tapir-javaagent-repro",
     libraryDependencies ++= Seq(
+      // OTEL dependencies
+      "io.opentelemetry" % "opentelemetry-api" % "1.49.0",
+
       // Pekko core dependencies
       "org.apache.pekko" %% "pekko-slf4j"  % Versions.Pekko,
       "org.apache.pekko" %% "pekko-http"   % Versions.PekkoHttp,
